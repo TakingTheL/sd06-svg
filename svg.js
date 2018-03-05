@@ -4,21 +4,8 @@ var pic = document.getElementById("vimage");
 var clearButton = document.getElementById("clear");
 
 var first = true;
-var prevX = -1;
-var prevY = -1;
-
-
-
-var change = function(e){
-    e.preventDefault();
-    this.setAttribute("fill", "green");
-};
-
-var clicked = function(e){
-    if(e.toElement == this){
-        drawDot(e);
-    }
-};
+var prevX;
+var prevY;
 
 var drawDot = function (e){
     console.log("drawing dot at x:" + e.offsetX + " y:" + e.offsetY)
@@ -56,8 +43,6 @@ var clear = function(){
 	pic.removeChild(pic.firstChild);
     }
     first = true;
-    x = -1;
-    y = -1;
 }
 
 pic.addEventListener("click", drawDot);
